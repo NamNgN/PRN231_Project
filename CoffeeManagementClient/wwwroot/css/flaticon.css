@@ -34,8 +34,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.flaticon-pizza-1:before { content: "\f100"; }
-.flaticon-pizza:before { content: "\f101"; }
+.flaticon-coffee-cup-1:before {
+    content: "\f100";
+}
+.flaticon-coffee-cup-1:before {
+    content: "\f101";
+}
 .flaticon-bicycle:before { content: "\f102"; }
 .flaticon-diet:before { content: "\f103"; }
 .flaticon-medal:before { content: "\f104"; }

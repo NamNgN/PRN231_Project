@@ -29,8 +29,12 @@ font-style: normal;
 margin-left: 20px;
 }
 
-.flaticon-pizza-1:before { content: "\f100"; }
-.flaticon-pizza:before { content: "\f101"; }
+.flaticon-coffee-cup-1:before {
+    content: "\f100";
+}
+.flaticon-coffee-cup:before {
+    content: "\f101";
+}
 .flaticon-bicycle:before { content: "\f102"; }
 .flaticon-diet:before { content: "\f103"; }
 .flaticon-medal:before { content: "\f104"; }
