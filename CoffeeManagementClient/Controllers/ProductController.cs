@@ -23,11 +23,11 @@ namespace CoffeeManagementClient.Controllers
             }
             if (response.IsSuccessStatusCode)
             {
-                List<ProductDTO> pizza = await response.Content.ReadAsAsync<List<ProductDTO>>();
-                ViewBag.pro1 = pizza.Where(p => p.CategoryId == 1).ToList();
-                ViewBag.pro2 = pizza.Where(p => p.CategoryId == 2).ToList();
-                ViewBag.pro3 = pizza.Where(p => p.CategoryId == 3).ToList();
-                ViewBag.pro4 = pizza.Where(p => p.CategoryId == 4).ToList();
+                List<ProductDTO> coffee = await response.Content.ReadAsAsync<List<ProductDTO>>();
+                ViewBag.pro1 = coffee.Where(p => p.CategoryId == 1).ToList();
+                ViewBag.pro2 = coffee.Where(p => p.CategoryId == 2).ToList();
+                ViewBag.pro3 = coffee.Where(p => p.CategoryId == 3).ToList();
+                ViewBag.pro4 = coffee.Where(p => p.CategoryId == 4).ToList();
 
             }
             return View();
