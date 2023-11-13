@@ -81,7 +81,29 @@ namespace CoffeeManagementClient.Controllers
             // return URI of the created resource.
             return View();
         }
+        public async Task<IActionResult> Search(string name)
+        {
+            HttpResponseMessage response = await client.GetAsync("Product/GetAllProduct");
+            try
+            {
+                response.EnsureSuccessStatusCode();
+            }
+            catch
+            {
+                //Tra ve thong bao loi
+                ViewBag.Error = await response.Content.ReadAsStringAsync(); return View();
+            }
+            if (response.IsSuccessStatusCode)
+            {
+                List<ProductDTO> coffee = await response.Content.ReadAsAsync<List<ProductDTO>>();
+                ViewBag.pro1 = coffee.Where(p => p.CategoryId == 1 && p.Name.ToLower().Contains(name.ToLower().Trim())).ToList();
+                ViewBag.pro2 = coffee.Where(p => p.CategoryId == 2 && p.Name.ToLower().Contains(name.ToLower().Trim())).ToList();
+                ViewBag.pro3 = coffee.Where(p => p.CategoryId == 3 && p.Name.ToLower().Contains(name.ToLower().Trim())).ToList();
+                ViewBag.pro4 = coffee.Where(p => p.CategoryId == 4 && p.Name.ToLower().Contains(name.ToLower().Trim())).ToList();
 
+            }
+            return View();
+        }
         public async Task<IActionResult> CreateProductDTOAsync(ProductDTO product)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync(

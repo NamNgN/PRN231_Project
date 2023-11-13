@@ -22,6 +22,7 @@ namespace CoffeeManagementAPI.Controllers
         }
 
         [HttpGet("[action]")]
+        //  [Produces("application/xml")]
         public IActionResult GetAllCategory()
         {
             return Ok(categoryRepository.GetCategories().Select(u => mapper.Map<CategoryDTO>(u)));

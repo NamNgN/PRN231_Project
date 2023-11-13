@@ -27,6 +27,7 @@ namespace CoffeeManagementAPI.Controllers
         }
 
         [HttpGet("[action]/{OrderId}")]
+        //  [Produces("application/xml")]
         public IActionResult GetAllOrderDetail(int OrderId)
         {
             return Ok(orderDetailRepository.GetOrderDetails(OrderId).Select(u => mapper.Map<OrderDetailDTO>(u)));

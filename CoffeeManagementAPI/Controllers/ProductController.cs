@@ -23,10 +23,13 @@ namespace CoffeeManagementAPI.Controllers
         }
 
         [HttpGet("[action]")]
+        //   [Produces("application/xml")]
         public IActionResult GetAllProduct()
         {
             return Ok(productRepository.GetProducts().Select(u => mapper.Map<ProductDTO>(u)));
         }
+        [HttpGet]
+        public ActionResult<IEnumerable<Product>> Search(string name) => productRepository.GetProducts().Where(c => c.Name.ToLower().Contains(name.Trim().ToLower())).ToList();
         [HttpGet("[action]")]
         public IActionResult GetAProduct(int Id)
         {

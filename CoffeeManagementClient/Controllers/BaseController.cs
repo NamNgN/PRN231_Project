@@ -11,8 +11,10 @@ namespace CoffeeManagementClient.Controllers
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:7250/");
+            //Dung media type la json
             client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
         }
+
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using CoffeeManagementAPI.DTO;
 using CoffeeManagementAPI.Models;
+using System.Text.Json;
 
 namespace CoffeeManagementAPI.Controllers
 {
@@ -22,6 +23,7 @@ namespace CoffeeManagementAPI.Controllers
         }
 
         [HttpGet("[action]")]
+        // [Produces("application/xml")]
         public IActionResult GetAllUser()
         {
             return Ok(userRepository.GetUsers().Select(u => mapper.Map<UserDTO>(u)));
@@ -61,7 +63,7 @@ namespace CoffeeManagementAPI.Controllers
             return Ok(mapper.Map<UserDTO>(user));
         }
         [HttpPost("[action]")]
-        public IActionResult AddAnUser(UserDTO userDTO)
+        public IActionResult AddUser(UserDTO userDTO)
         {
             if (ModelState.IsValid)
             {
@@ -81,6 +83,22 @@ namespace CoffeeManagementAPI.Controllers
                            .ToList());
 
         }
+        //[HttpGet("[action]/{userDTO}")]
+        //public IActionResult AddAnUser(string userDTO)
+        //{
+        //    UserDTO userdto = JsonSerializer.Deserialize<UserDTO>(userDTO);
+        //    try
+        //    {
+        //        User user = mapper.Map<User>(userdto);
+        //        userRepository.SaveUser(user);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Conflict(ex.Message);
+        //    }
+        //    return Ok(userdto);
+
+        //}
         [HttpPut("[action]")]
         public IActionResult UpdateAnUser(UserDTO userDTO)
         {
